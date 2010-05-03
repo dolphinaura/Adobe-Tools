@@ -1,0 +1,6 @@
+git add *
+git commit
+git push
+bzr add
+bzr commit
+bzr push lp:~dolphinaura/adobe-flash-plugin-tools/master
