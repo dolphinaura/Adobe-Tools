@@ -1,6 +1,6 @@
-//This is the makefile from nicoulaj's fork (http://github.com/nicoulaj)
-//Thanks for creating it!
-//note: only for building purposes.
+##This is the makefile from nicoulaj's fork (http://github.com/nicoulaj)
+##Thanks for creating it!
+##note: only for building purposes.
 CC=gcc
 CFLAGS=-W -Wall -ansi -pedantic -g
 LDFLAGS=`pkg-config --cflags --libs gtk+-2.0`
@@ -18,3 +18,4 @@ $(CC) -m64 -o binaries/adobe_flash_installer-ubuntu-64bit adobe_flash_installer-
 
 kubuntu-64:
 $(CC) -m64 -o binaries/adobe_flash_installer-kubuntu-64bit adobe_flash_installer-kubuntu-64bit.c $(CFLAGS) $(LDFLAGS)
+

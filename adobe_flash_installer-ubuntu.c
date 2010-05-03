@@ -1,26 +1,47 @@
- 
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Name: Adobe Flash Tools                                                                                                               //
+//                                                                                                                                       //
+// Author: Dolphinaura <garytang@dolphinaura.co.cc>                                                                                      //
+//                                                                                                                                       // 
+// Description: This tool allows you to install and uninstall adobe flash player on linux systems.                                       //
+//                                                                                                                                       //
+// Last Revised: Wednesday April 28th, 2010                                                                                              //
+//                                                                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                                       //
+// Website: http://dolphinaura.co.cc/programming/adobe-flash-player-installer-uninstaller/adobe-flash-plugin-installer-uninstaller-linux //
+//                                                                                                                                       //
+// Ubuntu Forums Topic:http://ubuntuforums.org/showthread.php?t=1414595                                                                  //
+//                                                                                                                                       //
+// Github: http://github.com/dolphinaura/Flash-Plugin-Tools                                                                              //
+//                                                                                                                                       //
+// Binaries: http://github.com/dolphinaura/Flash-Plugin-Tools/downloads                                                                  //
+//                                                                                                                                       //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                                                       //
+// Dedicated to Logan Kazman <logankazman316@hotmail.com>, who made my life /absolutely amazing.                                         //
+//                                                                                                                                       //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+*/ 
 #include <gtk/gtk.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-//gint count = 0;
-//char buf[5];
 
-
-void install_32bit(GtkWidget *widget, gpointer flash) //32 - bit Installation
+void install_32bit(GtkWidget *widget, gpointer flash)
 {
   system("gksudo 'apt-get install flashplugin-installer'"); 
   system("zenity --info --text 'Flash Plugin Installed Successfully'");
 }
 void install_beta(GtkWidget *widget, gpointer flash)
 {
-  system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc_linux_040510.tar.gz");
-  system("tar xvfz flashplayer10_1_rc_linux_*");
+  system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc2_linux_041910.tar.gz");
+  system("tar xvfz flashplayer10_1_rc2_linux_041910.tar.gz");
   system("gksudo 'mv libflashplayer.so /usr/lib/mozilla/plugins/libflashplayer.so'");
   system("rm flashplayer10_1_rc_linux_*tar.gz");
   system("zenity --info --text 'Flash Player 10.1 Installed Successfully'");
 }
-void remove_flsh(GtkWidget *widget, gpointer flash)//Flash Removal
+void remove_flsh(GtkWidget *widget, gpointer flash)
 {
   system("gksudo 'rm /var/lib/dpkg/info/flashplugin* '");
   system("gksudo 'rm /var/lib/dpkg/info/adobe-flashplugin* '");
@@ -50,7 +71,6 @@ void remove_flsh(GtkWidget *widget, gpointer flash)//Flash Removal
 }
 
 int main(int argc, char** argv) {
-//Widgets
   GtkWidget *flash;
   GtkWidget *window;
   GtkWidget *frame;
@@ -61,41 +81,41 @@ int main(int argc, char** argv) {
   GtkWidget *title2;
   GtkWidget *install_flash_beta;
   
-  PangoFontDescription *bold = pango_font_description_from_string ( "Sans Bold 24");//Bold Font Paremeters
+  PangoFontDescription *bold = pango_font_description_from_string ( "Sans Bold 24");
 
   gtk_init(&argc, &argv);
 
   window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-  gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);//Window Position
-  gtk_window_set_default_size(GTK_WINDOW(window), 300, 180);//Window Size
-  gtk_window_set_title(GTK_WINDOW(window), "Adobe Flash Installer"); //Title
+  gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+  gtk_window_set_default_size(GTK_WINDOW(window), 300, 180);
+  gtk_window_set_title(GTK_WINDOW(window), "Adobe Flash Installer");
 
   frame = gtk_fixed_new();
-  gtk_container_add(GTK_CONTAINER(window), frame); //Draw Window
+  gtk_container_add(GTK_CONTAINER(window), frame);
    
-  install_x86 = gtk_button_new_with_label("Install Flash (x86)"); //32 - bit Flash Button
+  install_x86 = gtk_button_new_with_label("Install Flash (x86)");
   gtk_widget_set_size_request(install_x86, 140, 35);
   gtk_fixed_put(GTK_FIXED(frame), install_x86, 77, 90);
 
   
-  install_flash_beta = gtk_button_new_with_label("Install Flash Beta");//Beta Flash Button
+  install_flash_beta = gtk_button_new_with_label("Install Flash Beta");
   gtk_widget_set_size_request(install_flash_beta, 140, 35);
   gtk_fixed_put(GTK_FIXED(frame), install_flash_beta, 77, 135);
 
-  remove_flash = gtk_button_new_with_label("Remove Flash");//Remove Flash
+  remove_flash = gtk_button_new_with_label("Remove Flash");
   gtk_widget_set_size_request(remove_flash, 120, 35);
   gtk_fixed_put(GTK_FIXED(frame), remove_flash, 87, 180);
 
   label = gtk_label_new("Designed By Gary/Dolphinaura");
   gtk_fixed_put(GTK_FIXED(frame), label, 45, 280); 
-  title1 = gtk_label_new("Adobe Flash");//Title (Row 1)
+  title1 = gtk_label_new("Adobe Flash");
   gtk_fixed_put(GTK_FIXED(frame), title1, 45, 10); 
   gtk_widget_show_all(window);
   title2 = gtk_label_new("Installer");
-  gtk_fixed_put(GTK_FIXED(frame), title2, 70, 40); //Title (Row 2)
+  gtk_fixed_put(GTK_FIXED(frame), title2, 70, 40);
   gtk_widget_show_all(window);
-  gtk_widget_modify_font(GTK_WIDGET(title1),bold);//Make Title (Row 1) Bold
-  gtk_widget_modify_font(GTK_WIDGET(title2),bold);//Make TItle (Row 2) Bold
+  gtk_widget_modify_font(GTK_WIDGET(title1),bold);
+  gtk_widget_modify_font(GTK_WIDGET(title2),bold);
 
 
   g_signal_connect(window, "destroy",
@@ -111,8 +131,11 @@ int main(int argc, char** argv) {
       G_CALLBACK(install_beta), flash);
       
 system("echo 'Adobe Flash Tools For Ubuntu'");
-system("echo 'Designed By Carlee/Dolphinaura (Ubuntu Forums)'");
+system("echo 'Developed By Dolphinaura (Gary Tang) <garytang@dolphinaura.co.cc>'");
+system("echo 'Please see http://ubuntuforums.org/showthread.php?t=1414595 before using'");
 system("echo 'Licenced Under GPL v3'");
+system("echo 'Dedicated to Logan Kazman <logankazman316@hotmail.com>, who made my life absolutely amazing.'");
+system("echo '--------------------------------------------------------------------------------------------'");
   gtk_main();
 
   return 0;
