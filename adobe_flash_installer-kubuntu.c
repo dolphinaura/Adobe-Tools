@@ -19,7 +19,7 @@
 //                                                                                                                                       //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                                       //
-// Dedicated to Logan Kazman <logankazman316@hotmail.com>, who made my life /absolutely amazing.                                         //
+// Dedicated to Logan Kazman <logankazman316@hotmail.com>, who made my life absolutely amazing.                                         //
 //                                                                                                                                       //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 */
@@ -36,8 +36,8 @@ void install_32bit(GtkWidget *widget, gpointer flash)
 }
 void install_beta(GtkWidget *widget, gpointer flash)
 {
-  system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc2_linux_041910.tar.gz");
-  system("tar xvfz flashplayer10_1_rc2_linux_041910.tar.gz");
+  system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc4_linux_050510.tar.gz");
+  system("tar xvfz flashplayer10_1_rc4_linux_050510.tar.gz");
   system("kdesudo 'mv libflashplayer.so /usr/lib/mozilla/plugins/libflashplayer.so'");
   system("rm flashplayer10_1_rc_linux_*tar.gz");
   system("zenity --info --text 'Flash Player 10.1 Installed Successfully'");
