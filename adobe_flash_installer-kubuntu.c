@@ -39,7 +39,7 @@ void install_beta(GtkWidget *widget, gpointer flash)
   system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc4_linux_050510.tar.gz");
   system("tar xvfz flashplayer10_1_rc4_linux_050510.tar.gz");
   system("kdesudo 'mv libflashplayer.so /usr/lib/mozilla/plugins/libflashplayer.so'");
-  system("rm flashplayer10_1_rc_linux_*tar.gz");
+  system("rm flashplayer*tar.gz");
   system("zenity --info --text 'Flash Player 10.1 Installed Successfully'");
 }
 void remove_flsh(GtkWidget *widget, gpointer flash)
