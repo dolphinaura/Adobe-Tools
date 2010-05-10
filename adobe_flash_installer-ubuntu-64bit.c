@@ -47,7 +47,7 @@ void install_beta(GtkWidget *widget, gpointer flash)
   system("gksudo 'apt-get -y install nspluginwrapper'");
   system("nspluginwrapper -i /usr/lib/mozilla/plugins/libflashplayer.so");
   system("nspluginwrapper -u /usr/lib/mozilla/plugins/libflashplayer.so");
-  system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc4_linux_050510.tar.gz");
+  system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc_linux_040510.tar.gz");
   system("tar xvfz flashplayer10_1_rc4_linux_050510.tar.gz");
   system("gksudo 'mv libflashplayer.so /usr/lib/mozilla/plugins/libflashplayer.so'");
   system("rm flashplayer*tar.gz");
