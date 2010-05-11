@@ -5,7 +5,7 @@
 //                                                                                                                                       // 
 // Description: This tool allows you to install and uninstall adobe flash player on linux systems.                                       //
 //                                                                                                                                       //
-// Last Revised: Wednesday April 28th, 2010                                                                                              //
+// Last Revised:Monday May 10th, 2010                                                                                              //
 //                                                                                                                                       //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                                       //
@@ -48,6 +48,7 @@ void remove_flsh(GtkWidget *widget, gpointer flash)
   system("gksudo 'dpkg --remove --force-remove-reinstreq adobe-flashplugin '");
   system("gksudo 'apt-get -y purge flashplugin-installer gnash mozilla-swfdec'"); 
   system("gksudo 'rm /usr/lib/mozilla/plugins/libflashplayer.so'"); 
+  system("gksudo 'rm /usr/lib/mozilla/plugins/flashplugin*'"); 
   system("gksudo 'rm ~/.mozilla/plugins/libflash*'"); 
   system("gksudo 'rm /usr/lib/firefox-3*/plugins/libflash*'"); 
   system("gksudo 'apt-get -y remove --purge flashplugin-installer'"); 
@@ -119,7 +120,7 @@ int main(int argc, char** argv) {
 
 
   g_signal_connect(window, "destroy",
-      G_CALLBACK (gtk_main_quit), NULL);
+      G_CALLBACK(gtk_main_quit), NULL);
   
   g_signal_connect(install_x86, "clicked", 
       G_CALLBACK(install_32bit), flash);
@@ -130,7 +131,7 @@ int main(int argc, char** argv) {
   g_signal_connect(install_flash_beta, "clicked",
       G_CALLBACK(install_beta), flash);
       
-system("echo 'Adobe Flash Tools For Ubuntu'");
+system("echo 'Adobe Flash Installer For Ubuntu'");
 system("echo 'Developed By Dolphinaura (Gary Tang) <garytang@dolphinaura.co.cc>'");
 system("echo 'Please see http://ubuntuforums.org/showthread.php?t=1414595 before using'");
 system("echo 'Licenced Under GPL v3'");
