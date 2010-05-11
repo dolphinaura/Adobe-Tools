@@ -37,7 +37,7 @@ void install_64bit(GtkWidget *widget, gpointer flash)
 {
   system("gksudo 'dpkg --purge --force all nspluginwrapper'");
   system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz"); 
-  system("tar xvfz libflash*"); 
+  system("tar xvfz libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz"); 
   system("gksudo 'mv libflashplayer.so /usr/lib/mozilla/plugins/libflashplayer.so'");
   system("rm libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz");
   system("zenity --info --text 'Flash Plugin Installed Successfully'");
@@ -50,7 +50,7 @@ void install_beta(GtkWidget *widget, gpointer flash)
   system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc4_linux_050510.tar.gz");
   system("tar xvfz flashplayer10_1_rc4_linux_050510.tar.gz");
   system("gksudo 'mv libflashplayer.so /usr/lib/mozilla/plugins/libflashplayer.so'");
-  system("rm flashplayer*tar.gz");
+  system("rm flashplayer10_1_rc4_linux_050510.tar.gz");
   system("nspluginwrapper -i /usr/lib/mozilla/plugins/libflashplayer.so");
   system("zenity --info --text 'Flash Player 10.1 Installed Successfully'");
 }
