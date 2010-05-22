@@ -1,4 +1,4 @@
-gcc      -o binaries/adobe_flash_installer-kubuntu-64bit adobe_flash_installer-kubuntu-64bit.c -W -Wall -ansi -pedantic -g `pkg-config --cflags --libs gtk+-2.0`
-gcc -m32 -o binaries/adobe_flash_installer-kubuntu adobe_flash_installer-kubuntu.c -W -Wall -ansi -pedantic -g `pkg-config --cflags --libs gtk+-2.0`
-gcc -m32 -o binaries/adobe_flash_installer-ubuntu adobe_flash_installer-ubuntu.c -W -Wall -ansi -pedantic -g `pkg-config --cflags --libs gtk+-2.0`
-gcc      -o binaries/adobe_flash_installer-ubuntu-64bit adobe_flash_installer-ubuntu-64bit.c -W -Wall -ansi -pedantic -g `pkg-config --cflags --libs gtk+-2.0`
+gcc      -o binaries/adobe_tools-kubuntu-64bit adobe_tools-kubuntu-64bit.c -W -Wall -ansi -pedantic -g `pkg-config --cflags --libs gtk+-2.0`
+gcc -m32 -o binaries/adobe_tools-kubuntu adobe_tools-kubuntu.c -W -Wall -ansi -pedantic -g `pkg-config --cflags --libs gtk+-2.0`
+gcc -m32 -o binaries/adobe_tools-ubuntu adobe_tools-ubuntu.c -W -Wall -ansi -pedantic -g `pkg-config --cflags --libs gtk+-2.0`
+gcc      -o binaries/adobe_tools-ubuntu-64bit adobe_tools-ubuntu-64bit.c -W -Wall -ansi -pedantic -g `pkg-config --cflags --libs gtk+-2.0`
