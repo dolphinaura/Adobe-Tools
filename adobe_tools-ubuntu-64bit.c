@@ -9,13 +9,13 @@
 //                                                                                                                                       //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                                       //
-// Website: http://dolphinaura.co.cc/programming/adobe-flash-player-installer-uninstaller/adobe-flash-plugin-installer-uninstaller-linux //
+// Website: http://dolphinaura.com/programming/adobe-flash-player-installer-uninstaller/adobe-flash-plugin-installer-uninstaller-linux //
 //                                                                                                                                       //
 // Ubuntu Forums Topic:http://ubuntuforums.org/showthread.php?t=1414595                                                                  //
 //                                                                                                                                       //
-// Github: http://github.com/dolphinaura/Flash-Plugin-Tools                                                                              //
+// Github: http://github.com/dolphinaura/Adobe-Tools                                                                              //
 //                                                                                                                                       //
-// Binaries: http://github.com/dolphinaura/Flash-Plugin-Tools/downloads                                                                  //
+// Binaries: http://github.com/dolphinaura/Adobe-Tools/downloads                                                                  //
 //                                                                                                                                       //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                                                                                                                       //
@@ -36,7 +36,7 @@ void install_32bit(GtkWidget *widget, gpointer adobe)
 void install_64bit(GtkWidget *widget, gpointer adobe)
 {
   system("gksudo 'dpkg --purge --force all nspluginwrapper'");
-  system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz"); 
+  system("wget --progress=bar:force 'http://download.macromedia.com/pub/labs/flashplayer10/libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz' -O/dev/null 2>&1 | zenity --title='Downloading...' --progress --auto-close --auto-kill"); 
   system("tar xvfz libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz"); 
   system("gksudo 'mv libflashplayer.so /usr/lib/mozilla/plugins/libflashplayer.so'");
   system("rm libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz");
@@ -44,21 +44,14 @@ void install_64bit(GtkWidget *widget, gpointer adobe)
 }
 void install_beta(GtkWidget *widget, gpointer adobe)
 {
-  system("gksudo 'apt-get -y install nspluginwrapper'");
-  system("nspluginwrapper -i /usr/lib/mozilla/plugins/libflashplayer.so");
-  system("nspluginwrapper -u /usr/lib/mozilla/plugins/libflashplayer.so");
-  system("wget -c http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc4_linux_050510.tar.gz");
-  system("tar xvfz flashplayer10_1_rc4_linux_050510.tar.gz");
-  system("gksudo 'mv libflashplayer.so /usr/lib/mozilla/plugins/libflashplayer.so'");
-  system("rm flashplayer10_1_rc4_linux_050510.tar.gz");
-  system("nspluginwrapper -i /usr/lib/mozilla/plugins/libflashplayer.so");
-  system("zenity --info --text 'Flash Player 10.1 Installed Successfully'");
+  system("zenity --info --text 'Sorry, the Adobe Flash Beta doesnt work on 64bit.'");
 }
 void install_air(GtkWidget *widget, gpointer adobe)
 {
   system("wget -c 'http://dl.dropbox.com/u/3593659/adobe_air/adobe_air64.sh'");
   system("chmod 667 adobe_air64.sh");
   system("sh ./adobe_air64.sh");
+  system("zenity --info --text 'Adobe AIR Installed Successfully'");
 }
 void remove_flsh(GtkWidget *widget, gpointer adobe)
 {
