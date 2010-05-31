@@ -30,11 +30,63 @@
 
 void install_32bit(GtkWidget *widget, gpointer adobe)
 {
+  system("gksudo 'rm /var/lib/dpkg/info/flashplugin* '");
+  system("gksudo 'rm /var/lib/dpkg/info/adobe-flashplugin* '");
+  system("gksudo 'dpkg --remove --force-remove-reinstreq adobe-flashplugin '");
+  system("gksudo 'apt-get -y purge flashplugin-installer gnash mozilla-swfdec'"); 
+  system("gksudo 'rm /usr/lib/mozilla/plugins/libflashplayer.so'"); 
+  system("gksudo 'rm /usr/lib/mozilla/plugins/flashplugin*'"); 
+  system("gksudo 'rm ~/.mozilla/plugins/libflash*'"); 
+  system("gksudo 'rm /usr/lib/firefox-3*/plugins/libflash*'"); 
+  system("gksudo 'apt-get -y remove --purge flashplugin-installer'"); 
+  system("gksudo 'apt-get -y remove --purge flashplugin-nonfree gnash gnash-common mozilla-plugin-gnash '");
+  system("gksudo 'apt-get -y remove --purge iceweasel-flashplugin mozilla-flashplugin firefox-flashplugin '");
+  system("gksudo 'apt-get -y remove --purge swfdec-mozilla libflashsupport nspluginwrapper iceape-flashplugin'");
+  system("gksudo 'apt-get -y remove --purge xulrunner-flashplugin midbrowser-flashplugin xulrunner-addons-flashplugin'");
+  system("gksudo 'rm -f ~/.mozilla/plugins/libflash* '");
+  system("gksudo 'rm -f ~/.mozilla/plugins/ns*flash* '");
+  system("gksudo 'rm -f /usr/lib/firefox-addons/plugins/libflash*'");
+  system("gksudo 'rm -f /usr/lib/firefox/plugins/libflash*'");
+  system("gksudo 'rm -f /usr/lib/iceape/plugins/flashplugin-alternative.so' ");
+  system("gksudo 'rm -f /usr/lib/iceweasel/plugins/flashplugin-alternative.so' ");
+  system("gksudo 'rm -f /usr/lib/iceweasel/plugins/npwrapper.libflashplayer.so' ");
+  system("gksudo 'rm -f /usr/lib/midbrowser/plugins/flashplugin-alternative.so' ");
+  system("gksudo 'rm -f /usr/lib/mozilla/plugins/libflash*'");
+  system("gksudo 'rm -f /usr/lib/xulrunner-addons/plugins/flashplugin-alternative.so' ");
+  system("gksudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
+  system("gksudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
+  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
   system("gksudo 'apt-get install flashplugin-installer'"); 
   system("zenity --info --text 'Flash Plugin Installed Successfully'");
 }
 void install_beta(GtkWidget *widget, gpointer adobe)
 {
+  system("gksudo 'rm /var/lib/dpkg/info/flashplugin* '");
+  system("gksudo 'rm /var/lib/dpkg/info/adobe-flashplugin* '");
+  system("gksudo 'dpkg --remove --force-remove-reinstreq adobe-flashplugin '");
+  system("gksudo 'apt-get -y purge flashplugin-installer gnash mozilla-swfdec'"); 
+  system("gksudo 'rm /usr/lib/mozilla/plugins/libflashplayer.so'"); 
+  system("gksudo 'rm /usr/lib/mozilla/plugins/flashplugin*'"); 
+  system("gksudo 'rm ~/.mozilla/plugins/libflash*'"); 
+  system("gksudo 'rm /usr/lib/firefox-3*/plugins/libflash*'"); 
+  system("gksudo 'apt-get -y remove --purge flashplugin-installer'"); 
+  system("gksudo 'apt-get -y remove --purge flashplugin-nonfree gnash gnash-common mozilla-plugin-gnash '");
+  system("gksudo 'apt-get -y remove --purge iceweasel-flashplugin mozilla-flashplugin firefox-flashplugin '");
+  system("gksudo 'apt-get -y remove --purge swfdec-mozilla libflashsupport nspluginwrapper iceape-flashplugin'");
+  system("gksudo 'apt-get -y remove --purge xulrunner-flashplugin midbrowser-flashplugin xulrunner-addons-flashplugin'");
+  system("gksudo 'rm -f ~/.mozilla/plugins/libflash* '");
+  system("gksudo 'rm -f ~/.mozilla/plugins/ns*flash* '");
+  system("gksudo 'rm -f /usr/lib/firefox-addons/plugins/libflash*'");
+  system("gksudo 'rm -f /usr/lib/firefox/plugins/libflash*'");
+  system("gksudo 'rm -f /usr/lib/iceape/plugins/flashplugin-alternative.so' ");
+  system("gksudo 'rm -f /usr/lib/iceweasel/plugins/flashplugin-alternative.so' ");
+  system("gksudo 'rm -f /usr/lib/iceweasel/plugins/npwrapper.libflashplayer.so' ");
+  system("gksudo 'rm -f /usr/lib/midbrowser/plugins/flashplugin-alternative.so' ");
+  system("gksudo 'rm -f /usr/lib/mozilla/plugins/libflash*'");
+  system("gksudo 'rm -f /usr/lib/xulrunner-addons/plugins/flashplugin-alternative.so' ");
+  system("gksudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
+  system("gksudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
+  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
   system("wget --progress=bar:force 'http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc5_linux_052010.tar.gz' -O/dev/null 2>&1 | zenity --title='Downloading...' --progress --auto-close --auto-kill");
   system("chmod 667 flashplayer10_1_rc5_linux_052010.tar.gz");
   system("tar xvfz flashplayer10_1_rc5_linux_052010.tar.gz");
@@ -77,6 +129,7 @@ void remove_flsh(GtkWidget *widget, gpointer adobe)
   system("gksudo 'rm -f /usr/lib/xulrunner-addons/plugins/flashplugin-alternative.so' ");
   system("gksudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
   system("gksudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
+  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
   system("zenity --info --text 'Flash Plugin Removed'");
 }
 
