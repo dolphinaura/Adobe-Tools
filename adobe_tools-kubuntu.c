@@ -55,7 +55,7 @@ void install_32bit(GtkWidget *widget, gpointer adobe)
   system("kdesudo 'rm -f /usr/lib/xulrunner-addons/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
-  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromedia/Flash");
+  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
   system("kdesudo 'apt-get -y install flashplugin-installer'"); 
   system("zenity --info --text 'Flash Plugin Installed Successfully'");
 }
@@ -85,7 +85,7 @@ void install_beta(GtkWidget *widget, gpointer adobe)
   system("kdesudo 'rm -f /usr/lib/xulrunner-addons/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
-  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromedia/Flash");
+  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
   system("wget --progress=bar:force 'http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc5_linux_052010.tar.gz' -O/dev/null 2>&1 | zenity --title='Downloading...' --progress --auto-close --auto-kill");
   system("chmod 667 flashplayer10_1_rc5_linux_052010.tar.gz");
   system("tar xvfz flashplayer10_1_rc5_linux_052010.tar.gz");
@@ -127,7 +127,7 @@ void remove_flsh(GtkWidget *widget, gpointer adobe)
   system("kdesudo 'rm -f /usr/lib/xulrunner-addons/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
-  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromedia/Flash");
+  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
   system("zenity --info --text 'Flash Plugin Removed'");
 }
 

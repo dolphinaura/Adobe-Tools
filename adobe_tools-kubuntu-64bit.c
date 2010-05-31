@@ -30,7 +30,7 @@
 
 void install_32bit(GtkWidget *widget, gpointer adobe)
 {
-    system("kdesudo 'rm /var/lib/dpkg/info/flashplugin* '");
+  system("kdesudo 'rm /var/lib/dpkg/info/flashplugin* '");
   system("kdesudo 'rm /var/lib/dpkg/info/adobe-flashplugin* '");
   system("kdesudo 'dpkg --remove --force-remove-reinstreq adobe-flashplugin '");
   system("kdesudo 'apt-get -y purge flashplugin-installer gnash mozilla-swfdec'"); 
@@ -54,7 +54,7 @@ void install_32bit(GtkWidget *widget, gpointer adobe)
   system("kdesudo 'rm -f /usr/lib/xulrunner-addons/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
-  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromedia/Flash");
+  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
   system("kdesudo 'apt-get -y install flashplugin-installer'"); 
   system("zenity --info --text 'Flash Plugin Installed Successfully'");
 }
@@ -84,7 +84,7 @@ void install_64bit(GtkWidget *widget, gpointer adobe)
   system("kdesudo 'rm -f /usr/lib/xulrunner-addons/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
-  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromedia/Flash");
+  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
   system("kdesudo 'dpkg --purge --force all nspluginwrapper'");
   system("wget --progress=bar:force 'http://download.macromedia.com/pub/labs/flashplayer10/libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz'  -O/dev/null 2>&1 | zenity --title='Downloading...' --progress --auto-close --auto-kill"); 
   system("tar xvfz libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz"); 
@@ -129,7 +129,7 @@ void remove_flsh(GtkWidget *widget, gpointer adobe)
   system("kdesudo 'rm -f /usr/lib/xulrunner-addons/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
-  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromedia/Flash");
+  system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
   system("zenity --info --text 'Flash Plugin Removed'");
   
 }
