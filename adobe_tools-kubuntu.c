@@ -86,11 +86,10 @@ void install_beta(GtkWidget *widget, gpointer adobe)
   system("kdesudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
   system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
-  system("wget --progress=bar:force 'http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc5_linux_052010.tar.gz' -O/dev/null 2>&1 | zenity --title='Downloading...' --progress --auto-close --auto-kill");
-  system("chmod 667 flashplayer10_1_rc5_linux_052010.tar.gz");
-  system("tar xvfz flashplayer10_1_rc5_linux_052010.tar.gz");
+  system("wget --progress=bar:force 'http://download.macromedia.com/pub/labs/flashplayer10/flashplayer10_1_rc7_linux_060210.so.tar.gz' -O/dev/null 2>&1 | zenity --title='Downloading...' --progress --auto-close --auto-kill");
+  system("tar xvfz flashplayer10_1_rc7_linux_060210.so.tar.gz");
   system("kdesudo 'mv libflashplayer.so /usr/lib/mozilla/plugins/libflashplayer.so'");
-  system("rm flashplayer10_1_rc5_linux_052010.tar.gz");
+  system("rm flashplayer*.tar.gz");
   system("zenity --info --text 'Flash Player 10.1 Installed Successfully'");
 }
 void install_air(GtkWidget *widget, gpointer adobe)
