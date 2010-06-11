@@ -86,7 +86,7 @@ void install_64bit(GtkWidget *widget, gpointer adobe)
   system("kdesudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
   system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
   system("kdesudo 'dpkg --purge --force all nspluginwrapper'");
-  system("wget --progress=bar:force 'http://download.macromedia.com/pub/labs/flashplayer10/libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz'  -O/dev/null 2>&1 | zenity --title='Downloading...' --progress --auto-close --auto-kill"); 
+  system("wget --progress=bar:force 'http://dl.dropbox.com/u/3593659/adobe_flash/libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz'  -O/dev/null 2>&1 | zenity --title='Downloading...' --progress --auto-close --auto-kill"); 
   system("tar xvfz libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz"); 
   system("kdesudo 'mv libflashplayer.so /usr/lib/mozilla/plugins/libflashplayer.so'");
   system("rm libflashplayer-10.0.45.2.linux-x86_64.so.tar.gz");
