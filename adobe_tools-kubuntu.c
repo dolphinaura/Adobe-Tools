@@ -31,7 +31,7 @@
 
 void install_32bit(GtkWidget *widget, gpointer adobe)
 {
-    system("kdesudo 'rm /var/lib/dpkg/info/flashplugin* '");
+  system("kdesudo 'rm /var/lib/dpkg/info/flashplugin* '");
   system("kdesudo 'rm /var/lib/dpkg/info/adobe-flashplugin* '");
   system("kdesudo 'dpkg --remove --force-remove-reinstreq adobe-flashplugin '");
   system("kdesudo 'apt-get -y  purge flashplugin-installer gnash mozilla-swfdec'"); 
@@ -40,8 +40,8 @@ void install_32bit(GtkWidget *widget, gpointer adobe)
   system("kdesudo 'rm /usr/lib/firefox-3*/plugins/libflash*'"); 
   system("kdesudo 'apt-get -y remove --purge flashplugin-installer'"); 
   system("kdesudo 'apt-get -y remove --purge flashplugin-nonfree gnash gnash-common mozilla-plugin-gnash '");
-  system("kdesudo 'apt-get -y remove --purge iceweasel-flashplugin mozilla-flashplugin firefox-flashplugin '");
-  system("kdesudo 'apt-get -y remove --purge swfdec-mozilla libflashsupport nspluginwrapper iceape-flashplugin'");
+  system("kdesudo 'apt-get -y remove --purge iceweasel-flashplugin nspluginwrapper mozilla-flashplugin firefox-flashplugin '");
+  system("kdesudo 'apt-get -y remove --purge swfdec-mozilla libflashsupport iceape-flashplugin'");
   system("kdesudo 'apt-get -y remove --purge xulrunner-flashplugin midbrowser-flashplugin xulrunner-addons-flashplugin'");
   system("kdesudo 'rm -f ~/.mozilla/plugins/libflash* '");
   system("kdesudo 'rm -f ~/.mozilla/plugins/ns*flash* '");
@@ -56,8 +56,8 @@ void install_32bit(GtkWidget *widget, gpointer adobe)
   system("kdesudo 'rm -f /usr/lib/xulrunner/plugins/flashplugin-alternative.so' ");
   system("kdesudo 'rm -f /var/lib/flashplugin-nonfree/npwrapper.libflashplayer.so' ");
   system("rm -rf $HOME/.wine/dosdevices/c:/windows/system32/Macromed/Flash");
-  system("kdesudo 'apt-get -y install flashplugin-installer'"); 
-  system("zenity --info --text 'Flash Plugin Installed Successfully'");
+  system("kdesudo 'apt-get install flashplugin-installer'");
+  system("zenity --info --text 'Flash Player 10.1 Installed Successfully'");
 }
 void install_beta(GtkWidget *widget, gpointer adobe)
 {
@@ -158,9 +158,9 @@ int main(int argc, char** argv) {
   gtk_widget_set_size_request(install_x86, 140, 35);
   gtk_fixed_put(GTK_FIXED(frame), install_x86, 77, 90);
   
-  install_flash_beta = gtk_button_new_with_label("Install Flash Beta");
+  /*install_flash_beta = gtk_button_new_with_label("Install Flash Beta");
   gtk_widget_set_size_request(install_flash_beta, 140, 35);
-  gtk_fixed_put(GTK_FIXED(frame), install_flash_beta, 77, 135);
+ gtk_fixed_put(GTK_FIXED(frame), install_flash_beta, 77, 135);*/
   
   install_air_32bit = gtk_button_new_with_label("Install Adobe Air");
   gtk_widget_set_size_request(install_air_32bit, 140, 35);
